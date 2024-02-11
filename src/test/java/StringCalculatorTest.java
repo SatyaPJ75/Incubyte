@@ -34,7 +34,7 @@ public class StringCalculatorTest {
         assertEquals(stringCalculator.add(numbers), list);
     }
 
-    @Test
+    @Test(expected = NumberFormatException.class)
     public void addTestWithNegativeNumbers(){
         String [] numbers = {"1","2","-1,2"};
         List<Integer> list = List.of(1,2,1);
