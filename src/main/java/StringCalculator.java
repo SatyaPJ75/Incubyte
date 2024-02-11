@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class StringCalculator {
 
     public List<Integer> add(String [] numbers){
         List<Integer> ans = new ArrayList<>();
-        //AtomicInteger sum = new AtomicInteger();
         Arrays.stream(numbers).forEach(numberString->{
             int sum =0;
             char delemitor = isDelimitorChanged(numberString);
@@ -15,9 +13,7 @@ public class StringCalculator {
                 numberString = numberString.substring(4);
             }
             String [] digits = numberString.split(String.valueOf(delemitor));
-            if(digits[0].startsWith("\n") || digits[digits.length-1].endsWith("\n")){
-                throw new NumberFormatException();
-            }
+            checkNewLineNotInBetween(digits);
             for(int i=0;i<digits.length;i++){
                     if(digits[i].contains("\n"))
                         digits[i].replace("\n","");
@@ -31,6 +27,12 @@ public class StringCalculator {
             ans.add(sum);
         });
         return ans;
+    }
+
+    private void checkNewLineNotInBetween(String[] digits) {
+        if(digits[0].startsWith("\n") || digits[digits.length-1].endsWith("\n")){
+            throw new NumberFormatException();
+        }
     }
 
     private char isDelimitorChanged(String numberString) {

@@ -13,7 +13,7 @@ public class StringCalculatorTest {
     @InjectMocks
     StringCalculator stringCalculator;
 
-    //@Test
+    @Test
     public void addTest(){
         String [] numbers = {"1","2","1,2"};
         List<Integer> list = List.of(1,2,3);
