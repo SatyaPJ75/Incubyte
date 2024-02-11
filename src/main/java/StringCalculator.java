@@ -21,7 +21,11 @@ public class StringCalculator {
             for(int i=0;i<digits.length;i++){
                     if(digits[i].contains("\n"))
                         digits[i].replace("\n","");
-                    sum += Integer.valueOf(digits[i]);
+                    int num = Integer.valueOf(digits[i]);
+                    if(num<0){
+                        throw new NumberFormatException("negative numbers not allowed "+num);
+                    }
+                    sum += num;
 
             }
             ans.add(sum);
