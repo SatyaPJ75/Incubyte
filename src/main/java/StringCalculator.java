@@ -15,8 +15,14 @@ public class StringCalculator {
                 numberString = numberString.substring(4);
             }
             String [] digits = numberString.split(String.valueOf(delemitor));
+            if(digits[0].startsWith("\n") || digits[digits.length-1].endsWith("\n")){
+                throw new NumberFormatException();
+            }
             for(int i=0;i<digits.length;i++){
-                sum+=Integer.valueOf(digits[i]);
+                    if(digits[i].contains("\n"))
+                        digits[i].replace("\n","");
+                    sum += Integer.valueOf(digits[i]);
+
             }
             ans.add(sum);
         });

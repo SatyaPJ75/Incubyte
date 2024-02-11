@@ -20,9 +20,16 @@ public class StringCalculatorTest {
         assertEquals(stringCalculator.add(numbers), list);
     }
 
-    @Test
+    @Test(expected = NumberFormatException.class)
     public void addTestWithNewLine(){
         String [] numbers = {"1","2","1,\n"};
+        List<Integer> list = List.of(1,2,3);
+        assertEquals(stringCalculator.add(numbers), list);
+    }
+
+    @Test
+    public void addTestWithDifferentDelimitor(){
+        String [] numbers = {"1","2","//;\n1;2"};
         List<Integer> list = List.of(1,2,3);
         assertEquals(stringCalculator.add(numbers), list);
     }
