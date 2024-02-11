@@ -29,7 +29,7 @@ public class StringCalculatorTest {
 
     @Test
     public void addTestWithDifferentDelimitor(){
-        String [] numbers = {"1","2","//;\n1;2"};
+        String [] numbers = {"1","2","//[;;;]\n1;;;2"};
         List<Integer> list = List.of(1,2,3);
         assertEquals(stringCalculator.add(numbers), list);
     }
@@ -44,7 +44,7 @@ public class StringCalculatorTest {
     @Test
     public void addTestBiggerNumber(){
         String [] numbers = {"1","2","1,2000"};
-        List<Integer> list = List.of(1,2,2001);
+        List<Integer> list = List.of(1,2,1);
         assertEquals(stringCalculator.add(numbers), list);
     }
 }
