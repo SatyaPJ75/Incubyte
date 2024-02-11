@@ -28,8 +28,15 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void addTestWithDifferentDelimitor(){
+    public void addTestWithDifferentMultipleDelimitor(){
         String [] numbers = {"1","2","//[;;;]\n1;;;2"};
+        List<Integer> list = List.of(1,2,3);
+        assertEquals(stringCalculator.add(numbers), list);
+    }
+
+    @Test
+    public void addTestWithDifferentDelimitor(){
+        String [] numbers = {"1","2","//[;]\n1;2"};
         List<Integer> list = List.of(1,2,3);
         assertEquals(stringCalculator.add(numbers), list);
     }
