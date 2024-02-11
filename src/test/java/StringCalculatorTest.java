@@ -33,4 +33,11 @@ public class StringCalculatorTest {
         List<Integer> list = List.of(1,2,3);
         assertEquals(stringCalculator.add(numbers), list);
     }
+
+    @Test
+    public void addTestWithNegativeNumbers(){
+        String [] numbers = {"1","2","-1,2"};
+        List<Integer> list = List.of(1,2,1);
+        assertEquals(stringCalculator.add(numbers), list);
+    }
 }
