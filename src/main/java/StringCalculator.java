@@ -6,9 +6,9 @@ import java.util.Objects;
 public class StringCalculator {
 
 
-    public List<Integer> add(String [] numbers){
+    public List<Integer> add(List<String> numbers){
         List<Integer> ans = new ArrayList<>();
-        Arrays.stream(numbers).forEach(numberString->{
+        numbers.stream().forEach(numberString->{
             int sum =0;
             String delemitor = isDelimitorChanged(numberString);
             numberString = handleDifferentDelemitor(delemitor,numberString);

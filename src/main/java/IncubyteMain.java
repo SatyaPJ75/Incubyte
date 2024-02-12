@@ -1,7 +1,9 @@
+import java.util.List;
+
 public class IncubyteMain {
     public static void main (String s[]){
         StringCalculator sc = new StringCalculator();
-        String [] numbers = {"1","2","3,4,5"};
+        List<String> numbers = List.of("1","2","1;;2;;3");
         System.out.print(sc.add(numbers));
     }
 }
