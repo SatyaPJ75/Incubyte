@@ -15,8 +15,8 @@ public class StringCalculator {
             String [] digits = numberString.split(delemitor);
             checkNewLineNotInBetween(digits);
             for (String digit : digits) {
-                if (digit.contains("\n"))
-                    digit = digit.replace("\n", "");
+                if (digit.contains(StringCalculatorConstant.NEW_LINE))
+                    digit = digit.replace(StringCalculatorConstant.NEW_LINE, "");
                 int num = Integer.parseInt(digit);
                 handlenegativeNumbers(num);
                 num = handleBiggerNumbers(num);
@@ -29,14 +29,14 @@ public class StringCalculator {
     }
 
     private void checkNewLineNotInBetween(String[] digits) {
-        if(digits[0].startsWith("\n") || digits[digits.length-1].endsWith("\n")){
+        if(digits[0].startsWith(StringCalculatorConstant.NEW_LINE) || digits[digits.length-1].endsWith(StringCalculatorConstant.NEW_LINE)){
             throw new NumberFormatException();
         }
     }
 
     private String isDelimitorChanged(String numberString) {
-        StringBuilder delemitor = new StringBuilder(",");
-        if(numberString.startsWith("//")){
+        StringBuilder delemitor = new StringBuilder(StringCalculatorConstant.COMMA);
+        if(numberString.startsWith(StringCalculatorConstant.DOUBLE_FORWARD)){
             int i= 3;
             delemitor = new StringBuilder();
             while(numberString.charAt(i)!=']') {
@@ -61,7 +61,7 @@ public class StringCalculator {
     }
 
     public String handleDifferentDelemitor(String delemitor,String numberString) {
-        if (!Objects.equals(delemitor, ",") && numberString.charAt(4 + delemitor.length()) == '\n') {
+        if (!Objects.equals(delemitor, StringCalculatorConstant.COMMA) && numberString.charAt(4 + delemitor.length()) == '\n') {
             numberString = numberString.substring(5 + delemitor.length());
         }
         return numberString;
